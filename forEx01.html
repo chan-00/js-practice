@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sum = 0;
+        var input = 1;
+        var i;
+
+        for(i = 0; input != 0; i++)
+        {
+            input = prompt("숫자를 하나 입력하세요.(0을 입력하면 종료)");
+            input = Number(input);
+            sum += input;
+        }
+
+        document.write("총 " + i + "번 수를 입력했고, 숫자들의 합은 " + sum + "입니다.");
+    </script>
+</body>
+</html>
