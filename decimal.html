@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var judge = 0;
+        var input = prompt("숫자 하나를 입력하세요.");
+        var input_num = Number(input);
+
+        for(var i = 1; i <= input_num; i++)
+        {
+            if (input_num % i === 0)
+            {
+                judge += 1;
+            }
+        }
+
+        if(judge === 2)
+        {
+            document.write("사용자가 입력한 숫자는 소수입니다.");
+        }
+        else
+        {
+            document.write("사용자가 입력한 숫자는 소수가 아닙니다.");
+        }
+    </script>
+</body>
+</html>
