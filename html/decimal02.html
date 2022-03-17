@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    어느 숫자까지 소수를 출력하시겠습니까?(2 이상의 수 입력.) : <input type="text" id = "num" value = "숫자 입력"> <br>
+    <button onclick = "runDecimal()">확인</button>
+    <script>
+        numbers = {}
+        numbers.all = [];
+        numbers.prime = [];
+        numbers.isprime = function(number)
+        {
+            for(var i = 2; i < number; i++)
+            {
+                if(number % i === 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        numbers.addprimepush = function(max_num)
+        {
+            for(var i = 2; i <= max_num; i++)
+            {
+                if(numbers.isprime(i))
+                {
+                    numbers.prime.push(i);
+                }
+                else
+                {
+                    numbers.prime.push(0);
+                }
+            }
+        }
+
+        numbers.addAll = function(max_num)
+        {
+            for(var i = 2; i <= max_num; i++)
+                {
+                    numbers.all.push(i);
+                }
+            numbers.judge = true;
+        }
+
+        numbers.printAll = function()
+        {
+            for(var i = 0; i < numbers.all.length; i++)
+            {
+                if(numbers.prime[i] != 0)
+                {
+                    document.write('<p class = "Dec">' + numbers.all[i] + '는(은) 소수가 맞습니다.' + '</p>');
+                    
+                }
+                else
+                {
+                    document.write('<p class = "notDec">' + numbers.all[i] + '는(은) 소수가 아닙니다.' + '</p>');
+                }
+            }
+            var pDec = document.getElementsByClassName("Dec");
+            for(var i = 0; i < pDec.length; i++)
+            {
+                pDec.item(i).style.backgroundColor = "aqua";
+                pDec.item(i).style.border = "1px solid white";
+                pDec.item(i).style.color = "black";
+                pDec.item(i).style.height = "40px";
+            }
+            
+            var pnotDec = document.getElementsByClassName("notDec");
+            for(var i = 0; i < pnotDec.length; i++)
+            {
+                pnotDec.item(i).style.backgroundColor = "black";
+                pnotDec.item(i).style.border = "1px solid white";
+                pnotDec.item(i).style.color = "white";
+                pnotDec.item(i).style.height = "40px";
+            }
+        }
+
+        function runDecimal()
+        {
+            var Max = Number(document.getElementById("num").value);
+
+            if(Max >= 2)
+            {
+                numbers.addAll(Max);
+                numbers.addprimepush(Max);
+                numbers.printAll();
+            }
+            else
+            {
+                document.write("소수가 되기에 적절한 수가 아닙니다.");
+            }
+        }
+    </script>
+</body>
+</html>
