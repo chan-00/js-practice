@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    구구단 출력할 숫자를 입력하세요.(쉼표로 구분) : <input type="text" id = "numStr" value = "숫자 입력"> <br>
+    <button onclick = "main()">확인</button>
+    <script>
+        multiCalc = {};
+        multiCalc.result = [];
+        multiCalc.num1 = 0;
+        multiCalc.num2 = 0;
+
+        multiCalc.calcurate = function() {
+            var index = 0;
+            for(var i = 2; i <= multiCalc.num1; i++) {
+                for(var j = 1; j <= multiCalc.num2; j++) {
+                    multiCalc.result[index] = i * j;
+                    index++;
+                }
+            }
+        }
+
+        multiCalc.printAll = function() {
+            var index = 0;
+
+            document.write("<h1>" + multiCalc.num1 + ", " + multiCalc.num2 + "단 출력</h1>");
+            for(var i = 2; i <= multiCalc.num1; i++) {
+                document.write("<h2>" + i + "단 출력</h2>");
+                for(var j = 1; j <= multiCalc.num2; j++) {
+                    document.write("<p>" + i + " * " + j + " = " + multiCalc.result[index] + "</p>");
+                    index++;
+                }
+            }
+        }
+
+        function main() {
+            var inputStr = document.getElementById("numStr").value;
+            var inputDiv = inputStr.split(',');
+
+            multiCalc.num1 = Number(inputDiv[0]);
+            multiCalc.num2 = Number(inputDiv[1]);
+
+            if(multiCalc.num1 >= 2 && multiCalc.num2 >= 1) {
+                multiCalc.calcurate();
+                multiCalc.printAll();
+            }
+            else {
+                document.write("입력받은 수가 양수가 아니거나 숫자가 아닙니다.");
+            }
+        }
+    </script>
+</body>
+</html>
