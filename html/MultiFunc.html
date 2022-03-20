@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    구구단 출력할 숫자를 입력하세요. : <input type="text" id = "num" value = "숫자 입력"> <br>
+    <button onclick = "main()">확인</button>
+    <script>
+        function calcurate(num) {
+            var result = [];
+            for(var i = 1; i < 10; i++) {
+                result[i - 1] = num * i;
+            }
+            return result;
+        }
+
+        function printAll(result, num) {
+            document.write("<h2>" + num + "단 출력</h2>");
+            for(var i = 0; i < 9; i++) {
+                document.write(num + " * " + (i + 1) + " = " + result[i] + "<br>");
+            }
+        }
+
+        function main() {
+            var num = Number(document.getElementById("num").value);
+
+            if(num >= 1) {
+                var result = calcurate(num);
+                printAll(result, num);
+            }
+            else {
+                document.write("입력받은 수가 양수가 아니거나 숫자가 아닙니다.");
+            }
+        }
+    </script>
+</body>
+</html>
