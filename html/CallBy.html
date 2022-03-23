@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Call by value
+        function changeValue(value, add) {
+            value += add;
+            document.write("function value : " + value + "<br>");
+        }
+
+        var value = 10;
+        changeValue(value, 20);
+        document.write("not function value : " + value + "<br>");
+
+        //Call by reference
+        function changeReference(ref, add) {
+            ref.value += add;
+            document.write("function ref value : " + ref.value + "<br>");
+        }
+
+        var ref = {};
+        ref.value = 10;
+        changeReference(ref, 20);
+        document.write("not function ref value : " + ref.value + "<br>");
+    </script>
+</body>
+</html>
